@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
-from Front.views import home_app
+from Front.views import home_app, base_app
 from Products.views import SupplyView, SuppliersView, ProductionView, BidView, supply_app, suppliers_app, \
     production_app, bid_app
 from Users.views import UsersView, WorkersView, AdministrationView, users_app, workers_app, administration_app
@@ -35,7 +35,6 @@ router.register("api/schedule", ScheduleView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_app),
     path('supply_page/', supply_app),
     path('suppliers_page/', suppliers_app),
     path('production_page/', production_app),
@@ -44,6 +43,8 @@ urlpatterns = [
     path('users_page/', users_app),
     path('workers_page/', workers_app),
     path('administration_page/', administration_app),
+    path('base_page/', base_app),
+    path('', home_app)
 ]
 
 urlpatterns += router.urls

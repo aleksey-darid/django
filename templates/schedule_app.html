@@ -1,23 +1,1037 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru-RU">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
     <title>График</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.31/vue.cjs.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js"></script>
+
 </head>
 <body>
-<img src="https://realt.by/uploads/pics/12_0ec837.jpg" alt="AMENIEL COFFEE" width="1050" height="550">
+
+<img src="{% static "/image/img.jpg" %}" alt="AMENIEL COFFEE">
 <H1>Добро пожаловать в раздел работы с графиком!</H1>
-<HR>
+<HR color="blue">
 <p>Тут вы сможете выбирать колличество фактически отработанных часов</p>
+<br>
+
+<h2>{{ message }}</h2>
+
+<br>
+<table border="2" align="center" width="80%">
+    <tr>
+        <th>02.2022</th>
+        <th>02</th>
+        <th>03</th>
+        <th>04</th>
+        <th>05</th>
+        <th>06</th>
+        <th>07</th>
+        <th>08</th>
+        <th>09</th>
+        <th>10</th>
+        <th>11</th>
+        <th>12</th>
+        <th>13</th>
+        <th>14</th>
+        <th>15</th>
+        <th>16</th>
+        <th>17</th>
+        <th>18</th>
+        <th>19</th>
+        <th>20</th>
+        <th>21</th>
+        <th>22</th>
+        <th>23</th>
+        <th>24</th>
+        <th>25</th>
+        <th>26</th>
+        <th>27</th>
+        <th>28</th>
+        <th>29</th>
+        <th>30</th>
+        <th>31</th>
+
+    </tr>
+     <tr>
+        <th>Валерия</th>
+    <td width="1"
+        ><form action="" method="post">
+        {% csrf_token %}
+        <input type="time" name="work_hours1" id="work_hours1">
+        <input type="time" name="work_hours2" id="work_hours2">
+        <input type="submit" name="send" id="send">
+        </form></td>
+
+    <td width="1"
+        ><form action="" method="post">
+        {% csrf_token %}
+        <input type="time" name="work_hours1" id="work_hours1">
+        <input type="time" name="work_hours2" id="work_hours2">
+        <input type="submit" name="send" id="send">
+        </form></td>
+
+    <td width="1"
+        ><form action="" method="post">
+        {% csrf_token %}
+        <input type="time" name="work_hours1" id="work_hours1">
+        <input type="time" name="work_hours2" id="work_hours2">
+        <input type="submit" name="send" id="send">
+        </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
 
 
-<div class="container" id="schedule_app">
 
-</div>
+    <tr>
+        <th>Ольга</th>
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
 
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+
+    </tr>
+    <tr>
+        <th>Арина</th>
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+
+    </tr>
+    <tr>
+        <th>Алеся</th>
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+        <td width="1"
+            ><form action="" method="post">
+            {% csrf_token %}
+            <input type="time" name="work_hours1" id="work_hours1">
+            <input type="time" name="work_hours2" id="work_hours2">
+            <input type="submit" name="send" id="send">
+            </form></td>
+
+    </tr>
+
+</table>
+
+<br>
 
 </body>
 </html>
