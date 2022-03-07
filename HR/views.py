@@ -1,7 +1,10 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.permissions import IsAuthenticated
 
+from Users.models import Workers
 from .models import Schedule
 from rest_framework.viewsets import ModelViewSet
 from .serializers import ScheduleSerializer
@@ -13,18 +16,30 @@ class ScheduleView(ModelViewSet):
 
 
 def schedule_app(request):
-    url_api = "http://127.0.0.1:8000/api/schedule/"
-    try:
-        if request.POST:
-            w_h1 = float(request.POST.get("work_hours1").replace(":", "."))
-            w_h2 = float(request.POST.get("work_hours2").replace(":", "."))
-            print(w_h1, w_h2)
-            data = {"message": "Время работы успешно записано"}
-            return render(request, "schedule_app.html", context=data)
-        else:
-            return render(request, "schedule_app.html")
-
-    except:
+    if request.method == "GET":
         return render(request, "schedule_app.html")
+    elif request.method == "POST":
+        ses_user = request.session.keys()
+        print(ses_user)
+        ses_user1 = request.session.get("_auth_user_id")
+        print(ses_user1)
+        ses_user2 = request.session.get("_auth_user_backend")
+        print(ses_user2)
+        ses_user3 = request.session.get("_auth_user_hash")
+        print(ses_user3)
+        return render(request, "schedule_app.html")
+
+
+
+        """date = request.POST.get("date").replace("-", ".")
+        print(date)
+        w_h1 = float(request.POST.get("work_hours1").replace(":", "."))
+        w_h2 = float(request.POST.get("work_hours2").replace(":", "."))
+        print(w_h1, w_h2)
+        data = {"message": "Время работы успешно записано"}
+        return render(request, "schedule_app.html", context=data)
+        # error_message = {"error_message": "POST не обработался"}
+        # return render(request, "schedule_app.html", context=error_message)"""
+
 
 

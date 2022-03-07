@@ -1,13 +1,18 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.31/vue.cjs.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js"></script>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    <title>AMENIEL COFFEE</title>
+
 </head>
 <body>
+<img src="{% static "/image/img.jpg" %}" alt="AMENIEL COFFEE" sizes="950">
+
+<h1><a href="http://127.0.0.1:8000/registration_page/">Регистрация</a></h1>
+<h1><a href="http://127.0.0.1:8000/login_page/">Вход</a></h1>
+<h1><a href="http://127.0.0.1:8000/suppliers_page/">Поставщики</a></h1>
 
 </body>
 </html>

@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ameniel_try',
+        'NAME': 'ameniel_db',
         'USER': 'aleksey',
         'PASSWORD': 'gt7tdi1sssd',
         'HOST': '127.0.0.1',

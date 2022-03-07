@@ -4,10 +4,9 @@ from django.db import models
 class Suppliers(models.Model):
     name = models.CharField(max_length=200)
     payment_deferment = models.IntegerField(default=0)
-    is_active = models.BooleanField(null=True)
 
     def __str__(self):
-        return f"id {self.id}: {self.name}: {self.payment_deferment}: {self.is_active}"
+        return f"id {self.id}: {self.name}: {self.payment_deferment}"
 
 
 class Production(models.Model):
@@ -20,7 +19,7 @@ class Production(models.Model):
 
 
 class Supply(models.Model):
-    supplier = models.ForeignKey(Suppliers, on_delete=models.PROTECT)
+    supplier = models.ForeignKey(Suppliers, on_delete=models.CASCADE)
     date = models.DateField()
     amount = models.DecimalField(max_digits=6, decimal_places=2)
 
@@ -29,7 +28,7 @@ class Supply(models.Model):
 
 
 class Bid(models.Model):
-    supplier = models.ForeignKey(Suppliers, on_delete=models.PROTECT)
+    supplier = models.ForeignKey(Suppliers, on_delete=models.CASCADE)
     text = models.CharField(max_length=200)
 
     def __str__(self):

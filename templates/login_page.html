@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru-Ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход в систему</title>
+</head>
+<body>
+<h1>Введите логин и пароль</h1>
+<h2>{{ message }}</h2>
+<h2>{{ error_message }}</h2>
+<p>
+<form action="" method="post">
+        {% csrf_token %}
+        <input placeholder= "Логин" type="text" name="name" id="name" value="">
+        <p>
+        <input placeholder= "Пароль" type="text" name="password" id="password" value="">
+        <p>
+        <input type="submit" name="send" id="send">
+        </form>
+
+</body>
+</html>

@@ -20,7 +20,8 @@ from rest_framework.routers import SimpleRouter
 from Front.views import home_app, base_app
 from Products.views import SupplyView, SuppliersView, ProductionView, BidView, supply_app, suppliers_app, \
     production_app, bid_app
-from Users.views import UsersView, WorkersView, AdministrationView, users_app, workers_app, administration_app
+from Users.views import UsersView, WorkersView, AdministrationView, users_app, workers_app, administration_app, \
+    login_app, registration_app
 from HR.views import ScheduleView, schedule_app
 
 router = SimpleRouter()
@@ -43,7 +44,9 @@ urlpatterns = [
     path('users_page/', users_app),
     path('workers_page/', workers_app),
     path('administration_page/', administration_app),
+    path('login_page/', login_app),
     path('base_page/', base_app),
+    path('registration_page/', registration_app),
     path('', home_app)
 ]
 
