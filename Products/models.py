@@ -1,5 +1,6 @@
 from django.db import models
-
+from datetime import date
+a = date.today()
 
 class Suppliers(models.Model):
     name = models.CharField(max_length=200)
@@ -28,8 +29,8 @@ class Supply(models.Model):
 
 
 class Bid(models.Model):
-    supplier = models.ForeignKey(Suppliers, on_delete=models.CASCADE)
+    data = models.DateField(default=f"{a}")
     text = models.CharField(max_length=200)
 
     def __str__(self):
-        return f"id {self.id}: {self.supplier}: {self.text}"
+        return f"id {self.id}: {self.data}: {self.text}"

@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from Products.models import Supply, Suppliers, Production, Bid
+from Products.models import Suppliers, Production, Bid, Supply
 
 
 class SupplySerializer(ModelSerializer):

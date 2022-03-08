@@ -25,7 +25,18 @@
         <input type="number" name="pay_def" id="pay_def" value=""> <p></p>
         <input type="submit" name="send" id="send">
         </form>
+
 <h2>{{ error_message_empty }}</h2>
+<h2>{{ message }}</h2>
+
+<h1>Удалить поставщика</h1>
+<p>Введите имя поставщика уоторого хотите удалить</p>
+<form action="" method="post" name="del">
+        {% csrf_token %}
+        <input type="text" name="name" id="name" value=""><p></p>
+        <input type="submit" name="send" id="send">
+        </form>
+<h2>{{ error_message }}</h2>
 <h2>{{ message }}</h2>
 </body>
 </html>

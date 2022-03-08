@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Products.models import Production, Suppliers, Supply, Bid
+from Products.models import Production, Suppliers, Bid, Supply
 
 admin.site.register(Suppliers)
 admin.site.register(Production)

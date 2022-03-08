@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru-RU">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.31/vue.cjs.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js"></script>
+    <title>Поставки</title>
+
 </head>
 <body>
+
+<h1>Список поставок</h1>
+<form action="" method="GET">
+        {% csrf_token %}
+        <h2>{{ supply_list }}</h2>
+        </form>
+
+<h1>Добавить поставку</h1>
+<form action="" method="post" name="add">
+        {% csrf_token %}
+        <p>Введите имя поставщика</p>
+        <input type="text" name="name" id="name" value="">
+        <p>Введите сумму поставки</p>
+        <input type="number" name="pay_sup" id="pay_sup" value="">
+        <p>Выберите дату поставки</p>
+        <input type="date" name="date" id="date" value=""><p></p>
+        <input type="submit" name="send" id="send">
+        </form>
+
+<h2>{{ error_message_empty }}</h2>
+<h2>{{ message }}</h2>
 
 </body>
 </html>

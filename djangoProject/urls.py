@@ -18,8 +18,8 @@ from django.urls import path
 from rest_framework.routers import SimpleRouter
 
 from Front.views import home_app, base_app
-from Products.views import SupplyView, SuppliersView, ProductionView, BidView, supply_app, suppliers_app, \
-    production_app, bid_app
+from Products.views import SuppliersView, ProductionView, BidView, supply_app, suppliers_app, \
+    production_app, bid_app, SupplyView
 from Users.views import UsersView, WorkersView, AdministrationView, users_app, workers_app, administration_app, \
     login_app, registration_app
 from HR.views import ScheduleView, schedule_app

@@ -121,10 +121,48 @@ def login_app(request):
 
 
 def users_app(request):
+    if request.method == "GET":
+        dat = Users.objects.in_bulk()
+        dat_list1 = str(dat.values()).replace(":", ",").split(",")
+        print(dat_list1)
+        dat_list = list(dat_list1)
+        new_dat = []
+
+        count = 0
+        for i in dat_list:
+            count += 1
+            if count == 3:
+                new_dat.append(i)
+            elif count == 5:
+                new_dat.append(i)
+                count = 0
+        new_dat2 = str(new_dat).replace("'", "").replace("[", "").replace("]", "").replace(">", "").replace(")", "")
+        users_list = {"users_list": new_dat2}
+        return render(request, "users_app.html", context=users_list)
     return render(request, "users_app.html")
 
 
 def workers_app(request):
+    if request.method == "GET":
+        dat = Workers.objects.in_bulk()
+        dat_list1 = str(dat.values()).replace(":", ",").split(",")
+        print(dat_list1)
+        dat_list = list(dat_list1)
+        new_dat = []
+
+        count = 0
+        for i in dat_list:
+            count += 1
+            if count == 3:
+                new_dat.append(i)
+            elif count == 5:
+                new_dat.append(i)
+            elif count == 6:
+                new_dat.append(i)
+                count = 0
+        new_dat2 = str(new_dat).replace("'", "").replace("[", "").replace("]", "").replace(">", "").replace(")", "")
+        workers_list = {"workers_list": new_dat2}
+        return render(request, "workers_app.html", context=workers_list)
     return render(request, "workers_app.html")
 
 
