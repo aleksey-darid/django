@@ -1,15 +1,14 @@
 from rest_framework.serializers import ModelSerializer
+from django.contrib.auth.models import User
 
-from .models import Users, Workers, Administration
 
-
-class UsersSerializer(ModelSerializer):
+class UserSerializer(ModelSerializer):
     class Meta:
-        model = Users
-        fields = ["name", "password", "phone_number", "email"]
+        model = User
+        fields = ["username", "password", "first_name", "last_name", "email"]
 
 
-class WorkersSerializer(ModelSerializer):
+"""class WorkersSerializer(ModelSerializer):
     class Meta:
         model = Workers
         fields = ["name", "password", "phone_number", "email", "rate_per_hour"]
@@ -18,4 +17,4 @@ class WorkersSerializer(ModelSerializer):
 class AdministrationSerializer(ModelSerializer):
     class Meta:
         model = Administration
-        fields = ["name", "password", "phone_number", "email"]
+        fields = ["name", "password", "phone_number", "email"]"""

@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.permissions import IsAuthenticated
 
-from Users.models import Workers
+from django.contrib.auth.models import User
 from .models import Schedule
 from rest_framework.viewsets import ModelViewSet
 from .serializers import ScheduleSerializer
@@ -17,7 +17,9 @@ class ScheduleView(ModelViewSet):
 
 def schedule_app(request):
     if request.method == "GET":
-        return render(request, "schedule_app.html")
+        ses_user2 = request.session.get("_auth_user_id")
+        worker = {"worker": f"{str(ses_user2)}"}
+        return render(request, "schedule_app.html", context=worker)
     elif request.method == "POST":
         ses_user = request.session.keys()
         print(ses_user)
@@ -25,9 +27,10 @@ def schedule_app(request):
         print(ses_user1)
         ses_user2 = request.session.get("_auth_user_backend")
         print(ses_user2)
+        worker = {"worker": f"{str(ses_user2)}"}
         ses_user3 = request.session.get("_auth_user_hash")
         print(ses_user3)
-        return render(request, "schedule_app.html")
+        return render(request, "schedule_app.html", context=worker)
 
 
 

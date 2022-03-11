@@ -5,13 +5,19 @@
     <title>Вход в систему</title>
 </head>
 <body>
+<h1><a href="{% url 'home' %}">Home</a></h1>
+<p>
+<h1><a href="{% url 'logout' %}">Выход</a></h1>
 <h1>Введите логин и пароль</h1>
 <h2>{{ message }}</h2>
 <h2>{{ error_message }}</h2>
+<h2>{{ error_message_empty }}</h2>
+
 <p>
+<a href="{% url 'registration' %}">Регистрация</a>
 <form action="" method="post">
         {% csrf_token %}
-        <input placeholder= "Логин" type="text" name="name" id="name" value="">
+        <input placeholder= "Логин" type="text" name="username" id="username" value="">
         <p>
         <input placeholder= "Пароль" type="text" name="password" id="password" value="">
         <p>

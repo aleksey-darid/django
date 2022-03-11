@@ -2,16 +2,14 @@
 <html lang="ru-RU">
 <head>
     <meta charset="UTF-8">
-    <title>Клиенты</title>
-
+    <title>Выход</title>
 </head>
 <body>
 <a href="{% url 'home' %}">Home</a>
-<h1>Список клиентов</h1>
-<form action="" method="GET">
+<h2>{{ logout_message }}</h2>
+<form action="" method="post">
         {% csrf_token %}
-        <h2>{{ users_list }}</h2>
+        <input type="submit" name="send" id="send">
         </form>
-
 </body>
 </html>

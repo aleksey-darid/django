@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
+import Front.views
 from Front.views import home_app, base_app
 from Products.views import SuppliersView, ProductionView, BidView, supply_app, suppliers_app, \
     production_app, bid_app, SupplyView
-from Users.views import UsersView, WorkersView, AdministrationView, users_app, workers_app, administration_app, \
-    login_app, registration_app
+from Users.views import UserView, user_app, \
+    login_app, logout_app, registration_app, workers_app
 from HR.views import ScheduleView, schedule_app
 
 router = SimpleRouter()
@@ -29,25 +30,23 @@ router.register("api/supply", SupplyView)
 router.register("api/suppliers", SuppliersView)
 router.register("api/production", ProductionView)
 router.register("api/bid", BidView)
-router.register("api/users", UsersView)
-router.register("api/workers", WorkersView)
-router.register("api/administration", AdministrationView)
+router.register("api/users", UserView)
 router.register("api/schedule", ScheduleView)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('supply_page/', supply_app),
-    path('suppliers_page/', suppliers_app),
-    path('production_page/', production_app),
-    path('bid_page/', bid_app),
-    path('schedule_page/', schedule_app),
-    path('users_page/', users_app),
-    path('workers_page/', workers_app),
-    path('administration_page/', administration_app),
-    path('login_page/', login_app),
-    path('base_page/', base_app),
-    path('registration_page/', registration_app),
-    path('', home_app)
+    path('admin/', admin.site.urls, name="admin"),
+    path('supply_page/', supply_app, name="supply"),
+    path('suppliers_page/', suppliers_app, name="suppliers"),
+    path('production_page/', production_app, name="production"),
+    path('bid_page/', bid_app, name="bid"),
+    path('schedule_page/', schedule_app, name="schedule"),
+    path('users_page/', user_app, name="users"),
+    path('workers_page/', workers_app, name="workers"),
+    path('login_page/', login_app, name="login"),
+    path('logout_page/', logout_app, name="logout"),
+    path('base_page/', base_app, name="base"),
+    path('registration_page/', registration_app, name="registration"),
+    path('', home_app, name='home')
 ]
 
 urlpatterns += router.urls

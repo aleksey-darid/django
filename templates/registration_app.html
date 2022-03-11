@@ -5,6 +5,7 @@
     <title>Регистрация пользователя</title>
 </head>
 <body>
+<a href="{% url 'home' %}">Home</a>
 <h1>Регистрация</h1>
 <h2>{{ message }}</h2>
 <h2>{{ error_message }}</h2>
@@ -12,14 +13,15 @@
 <h2>{{ error_message_phone }}</h2>
 <h2>{{ error_message_empty }}</h2>
 <p>
+<a href="{% url 'login' %}">Вход</a>
 <form action="" method="post">
         {% csrf_token %}
         <p>Введите ваше имя</p>
-        <input type="text" name="name" id="name" value="">
+        <input type="text" name="username" id="username" value="">
         <p>Введите пороль</p>
         <input type="text" name="password" id="password" value="">
-        <p>Введите ваш номер телефона</p>
-        <input type="tel" name="phone" id="phone" value="">
+        <p>Введите адрес электронной почты</p>
+        <input type="email" name="email" id="email" value="">
         <p>
         <input type="submit" name="send" id="send">
         </form>

@@ -1,7 +1,4 @@
 from django.contrib import admin
-from Users.models import Users, Workers, Administration
+from django.contrib.auth.models import User
 
 
-admin.site.register(Users)
-admin.site.register(Workers)
-admin.site.register(Administration)
