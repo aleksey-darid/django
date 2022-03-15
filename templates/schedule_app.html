@@ -8,13 +8,13 @@
 
 </head>
 <body>
-
+<a href="{% url 'home' %}">Главная страница</a>
 <img src="{% static "/image/img.jpg" %}" alt="AMENIEL COFFEE">
 <H1>Добро пожаловать в раздел работы с графиком!</H1>
 <HR color="blue">
 <p>Тут вы сможете выбирать колличество фактически отработанных часов</p>
 <br>
-<a href="{% url 'home' %}">Home</a>
+
 <h2>{{ message }}</h2>
 <h2>{{ error_message }}</h2>
 <br>
@@ -23,15 +23,10 @@
     </tr>
      <tr>
         <th>{{ worker }}</th>
-    <td width="1"
-        ><form action="" method="post">
+    <td width="1">
+        <form action="" method="post">
         {% csrf_token %}
-        <input type="time" name="work_hours1" id="work_hours1">
-        <p></p>
-        <input type="time" name="work_hours2" id="work_hours2">
-        <p></p>
-        <input type="date" name="date" id="date">
-        <p></p>
+        {{ form.as_p }}
         <input type="submit" name="send" id="send">
         </form></td>
 

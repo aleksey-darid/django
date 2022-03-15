@@ -5,11 +5,12 @@
     <title>Выход</title>
 </head>
 <body>
-<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'home' %}">Главная страница</a>
 <h2>{{ logout_message }}</h2>
+
 <form action="" method="post">
         {% csrf_token %}
-        <input type="submit" name="send" id="send">
-        </form>
+        <button type="submit">Выйти</button>
+</form>
 </body>
 </html>

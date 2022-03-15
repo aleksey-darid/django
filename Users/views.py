@@ -2,11 +2,13 @@ from inspect import Traceback
 from django.contrib.auth.models import Group, Permission
 from django.contrib import auth
 from django.contrib.auth.models import AbstractUser
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.viewsets import ModelViewSet
 from django.contrib.auth.models import User
 from .serializers import UserSerializer
 from django.contrib.auth import authenticate, login, logout
+import logging
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 class UserView(ModelViewSet):
@@ -15,59 +17,19 @@ class UserView(ModelViewSet):
 
 
 def registration_app(request):
-    """Используется система аутентификации и авторизации django"""
-    if request.method == "GET":
-        return render(request, "registration_app.html")
-    elif request.method == "POST":
-        message = {"message": "Вы добавлены в систему!"}
-        error_message = {"error_message": "Вы уже зарегестрированы в системе, перейдите на страницу входа"}
-        error_message_pas = {"error_message_pas": "Такое имя пользователя уже есть"
-                                                  "Ваш пароль не может быть слишком похож на другую вашу личную информацию."
-                                                  "Ваш пароль должен содержать не менее 8 символов."
-                                                  "Ваш пароль не может быть широко используемым паролем."
-                                                  "Ваш пароль не может быть полностью числовым."}
-        # error_message_phone = {"error_message_phone": "Такая почта уже есть!"}
-        error_message_empty = {"error_message_empty": "Поля не могут быть пустыми."}
-
-        username = request.POST['username']  # Получаем знычение username
-        password = request.POST['password']  # Получаем знычение password
-        email = request.POST['email']  # Получаем знычение email
-        print(username, password, email)
-
-        count_name = 0  # Проверяем поля на заполненность
-        for _ in username:
-            count_name = count_name + 1
-        if count_name == 0:
-            return render(request, "registration_app.html", context=error_message_empty)
-
-        count_name = 0  # Проверяем поля на заполненность
-        for _ in password:
-            count_name = count_name + 1
-        if count_name == 0:
-            return render(request, "registration_app.html", context=error_message_empty)
-
-        count_name = 0  # Проверяем поля на заполненность
-        for _ in email:
-            count_name = count_name + 1
-        if count_name == 0:
-            return render(request, "registration_app.html", context=error_message_empty)
-
-        user = authenticate(request, username=username, password=password,
-                            email=email)  # Проверяем есть ли такой пользователь
-        print(user)
-        if user is not None:
-            return render(request, "registration_app.html",
-                          context=error_message)  # Если такой пользователь есть - предлагаем осуществить вход
-        else:
-            try:
-                new_user = User.objects.create(username=f"{username}", password=f"{password}",
-                                               email=f"{email}")  # Создаем пользователя
-                print(new_user)
-                new_user.save()
-                new_user.groups.add(Group.objects.get(name='Users'))  # Определяем его в нужную нам группу
-                return render(request, "registration_app.html", context=message)
-            except:
-                return render(request, "registration_app.html", context=error_message_pas)
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            user.groups.add(Group.objects.get(name='Users'))
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration_app.html', {'form': form})
 
 
 def login_app(request):
@@ -79,10 +41,12 @@ def login_app(request):
         error_message = {"error_message": "Не верный логин или пароль, попробуйте снова или зарегестрируйтесь"}
         username = request.POST['username']  # Получаем знычение username
         password = request.POST['password']  # Получаем знычение password
-
-        user = authenticate(request, username=username, password=password)  # Проверяем есть ли такой пользователь
+        print(username, password)
+        user = authenticate(username=username, password=password)  # Проверяем есть ли такой пользователь
+        print("user", user)
         if user is not None:
-            login(request, user)  # Если такой пользователь есть - осуществляем привязку к сессии
+            t = login(request, user)  # Если такой пользователь есть - осуществляем привязку к сессии
+            print("login", t)
             return render(request, "login_page.html", context=message)
         else:
             return render(request, "login_page.html", context=error_message)

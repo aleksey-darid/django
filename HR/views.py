@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from rest_framework.permissions import IsAuthenticated
 
@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from .models import Schedule
 from rest_framework.viewsets import ModelViewSet
 from .serializers import ScheduleSerializer
+from .forms import ScheduleForm
 
 
 class ScheduleView(ModelViewSet):
@@ -17,32 +18,26 @@ class ScheduleView(ModelViewSet):
 
 def schedule_app(request):
     if request.method == "GET":
-        ses_user2 = request.session.get("_auth_user_id")
-        worker = {"worker": f"{str(ses_user2)}"}
+        ses_user2 = request.user.username
+        form = ScheduleForm()
+        worker = {"worker": ses_user2, "form": form}
         return render(request, "schedule_app.html", context=worker)
     elif request.method == "POST":
-        ses_user = request.session.keys()
-        print(ses_user)
-        ses_user1 = request.session.get("_auth_user_id")
-        print(ses_user1)
-        ses_user2 = request.session.get("_auth_user_backend")
-        print(ses_user2)
-        worker = {"worker": f"{str(ses_user2)}"}
-        ses_user3 = request.session.get("_auth_user_hash")
-        print(ses_user3)
-        return render(request, "schedule_app.html", context=worker)
+        form = ScheduleForm(request.POST)
+        if form.is_valid():
+            dt = (form.cleaned_data.get("date_from").seconds - form.cleaned_data.get("date_to")).seconds
+            print(dt)
+            sch1 = Schedule(**form.cleaned_data, worker=request.user, delta=dt)
+            print(sch1)
+            sch1.save()
+        return redirect("schedule")
 
-
-
-        """date = request.POST.get("date").replace("-", ".")
-        print(date)
-        w_h1 = float(request.POST.get("work_hours1").replace(":", "."))
-        w_h2 = float(request.POST.get("work_hours2").replace(":", "."))
-        print(w_h1, w_h2)
-        data = {"message": "Время работы успешно записано"}
-        return render(request, "schedule_app.html", context=data)
-        # error_message = {"error_message": "POST не обработался"}
-        # return render(request, "schedule_app.html", context=error_message)"""
-
-
-
+    """date = request.POST.get("date").replace("-", ".")
+    print(date)
+    w_h1 = float(request.POST.get("work_hours1").replace(":", "."))
+    w_h2 = float(request.POST.get("work_hours2").replace(":", "."))
+    print(w_h1, w_h2)
+    data = {"message": "Время работы успешно записано"}
+    return render(request, "schedule_app.html", context=data)
+    # error_message = {"error_message": "POST не обработался"}
+    # return render(request, "schedule_app.html", context=error_message)"""
