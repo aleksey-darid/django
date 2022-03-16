@@ -41,12 +41,9 @@ def login_app(request):
         error_message = {"error_message": "Не верный логин или пароль, попробуйте снова или зарегестрируйтесь"}
         username = request.POST['username']  # Получаем знычение username
         password = request.POST['password']  # Получаем знычение password
-        print(username, password)
         user = authenticate(username=username, password=password)  # Проверяем есть ли такой пользователь
-        print("user", user)
         if user is not None:
             t = login(request, user)  # Если такой пользователь есть - осуществляем привязку к сессии
-            print("login", t)
             return render(request, "login_page.html", context=message)
         else:
             return render(request, "login_page.html", context=error_message)
@@ -64,9 +61,7 @@ def logout_app(request):
 def user_app(request):
     if request.method == "GET":
         dat = User.objects.in_bulk()
-        print(dat, dat.values())
         dat_list1 = str(dat.values()).replace(":", ",").split(",")
-        print(dat_list1)
         dat_list = list(dat_list1)
         new_dat = []
 
@@ -86,7 +81,6 @@ def workers_app(request):
     if request.method == "GET":
         dat = User.objects.filter(groups__name="Workers")
         dat_list1 = str(dat.values()).replace(":", ",").split(",")
-        print(dat_list1)
         dat_list = list(dat_list1)
         new_dat = []
         count = 0

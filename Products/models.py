@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date
+
 a = date.today()
+
 
 class Suppliers(models.Model):
     name = models.CharField(max_length=200)

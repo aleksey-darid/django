@@ -8,10 +8,11 @@
 <body>
 <a href="{% url 'home' %}">Главная страница</a>
 <h1>Сделать заявку</h1>
+
 <form action="" method="post" name="del">
         {% csrf_token %}
         <p>Введите текст заявки</p>
-        <input type="text" name="text" id="text" value="" size="60"><p></p>
+        <h2>{{ form }}</h2>
         <input type="submit" name="send" id="send">
         </form>
 <h2>{{ error_message_empty }}</h2>

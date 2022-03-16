@@ -1,7 +1,9 @@
 import datetime
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.viewsets import ModelViewSet
+
+from .forms import BidForm
 from .models import Suppliers, Production, Bid, Supply
 from .serializers import SuppliersSerializer, ProductionSerializer, BidSerializer, SupplySerializer
 
@@ -155,20 +157,14 @@ def production_app(request):
 
 def bid_app(request):
     if request.method == "GET":
-        return render(request, "bid_app.html")
+        form = BidForm()
+        form_html = {"form": form}
+        return render(request, "bid_app.html", context=form_html)
     elif request.method == "POST":
-        error_message_empty = {"error_message_empty": "Поля не могут быть пустыми."}
-        message = {"message": "Заявка отправлена."}
-        data = request.POST.get
-        print(data)
-        text = data("text")
-        print(text)
-        date = datetime.date
-        print(date)
-        count_name = 0
-        for _ in text:
-            count_name = count_name + 1
-        if count_name == 0:
-            return render(request, "bid_app.html", context=error_message_empty)
-
-        return render(request, "bid_app.html", context=message)
+        form = BidForm(request.POST)
+        print(form)
+        if form.is_valid():
+            bid_tot = Bid(**form.cleaned_data)
+            print(bid_tot)
+            bid_tot.save()
+        return redirect("bid")

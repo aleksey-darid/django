@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from rest_framework.permissions import IsAuthenticated
@@ -25,19 +26,14 @@ def schedule_app(request):
     elif request.method == "POST":
         form = ScheduleForm(request.POST)
         if form.is_valid():
-            dt = (form.cleaned_data.get("date_from").seconds - form.cleaned_data.get("date_to")).seconds
-            print(dt)
-            sch1 = Schedule(**form.cleaned_data, worker=request.user, delta=dt)
+            df = datetime.datetime.strptime(str(form.cleaned_data.get("date")) + str(form.cleaned_data.get("time_from")),
+                                            "%Y-%m-%d%H:%M:%S")
+            dt = datetime.datetime.strptime(str(form.cleaned_data.get("date")) + str(form.cleaned_data.get("time_to")),
+                                            "%Y-%m-%d%H:%M:%S")
+            delta = (dt - df).seconds / 60
+            print(df, dt, delta)
+            sch1 = Schedule(**form.cleaned_data, worker=request.user, delta=delta)
             print(sch1)
             sch1.save()
         return redirect("schedule")
 
-    """date = request.POST.get("date").replace("-", ".")
-    print(date)
-    w_h1 = float(request.POST.get("work_hours1").replace(":", "."))
-    w_h2 = float(request.POST.get("work_hours2").replace(":", "."))
-    print(w_h1, w_h2)
-    data = {"message": "Время работы успешно записано"}
-    return render(request, "schedule_app.html", context=data)
-    # error_message = {"error_message": "POST не обработался"}
-    # return render(request, "schedule_app.html", context=error_message)"""
