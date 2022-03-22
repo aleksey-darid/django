@@ -60,7 +60,9 @@ def logout_app(request):
 
 def user_app(request):
     if request.method == "GET":
-        dat = User.objects.in_bulk()
+        dat = Group.objects.filter(name='Users').in_bulk()
+        print(dat)
+        #  dat = User.objects.in_bulk()
         dat_list1 = str(dat.values()).replace(":", ",").split(",")
         dat_list = list(dat_list1)
         new_dat = []

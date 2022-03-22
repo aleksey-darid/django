@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru-RU">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
     <title>Регистрация пользователя</title>
 </head>
 <body>
+<img src="{% static "/image/img.jpg" %}" alt="AMENIEL COFFEE" sizes="950">
 <a href="{% url 'home' %}">Главная страница</a>
 <h1>Регистрация</h1>
 <h2>{{ message }}</h2>

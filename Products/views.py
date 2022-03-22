@@ -3,7 +3,7 @@ import datetime
 from django.shortcuts import render, redirect
 from rest_framework.viewsets import ModelViewSet
 
-from .forms import BidForm
+from .forms import BidForm, SupplyForm, SuppliersForm, ProductionForm
 from .models import Suppliers, Production, Bid, Supply
 from .serializers import SuppliersSerializer, ProductionSerializer, BidSerializer, SupplySerializer
 
@@ -46,47 +46,16 @@ def supply_app(request):
                 count = 0
         new_dat2 = str(new_dat).replace("'", "").replace("[", "").replace("]", "").replace(">", "").replace(")", "")
         list1 = {"list1": new_dat2}
-        supply_list = {"supply_list": new_dat2}
+        form = SupplyForm()
+        supply_list = {"supply_list": new_dat2, "form": form}
         return render(request, "supply_app.html", context=supply_list)
     elif request.method == "POST":
-        error_message_empty = {"error_message_empty": "Поля не могут быть пустыми. Либо нет такого поставщика"}
-        message = {"message": "Поставка добавлена."}
-        data = request.POST.get
-        print(data)
-        name = data("name")
-        print(name)
-        pay_sup = data("pay_sup")
-        print(pay_sup)
-        date = data("date")
-        print(date)
-
-        count_name = 0
-        for _ in name:
-            count_name = count_name + 1
-        if count_name == 0:
-            return render(request, "supply_app.html", context=error_message_empty)
-
-        count_name = 0
-        for _ in pay_sup:
-            count_name = count_name + 1
-        if count_name == 0:
-            return render(request, "supply_app.html", context=error_message_empty)
-
-        count_name = 0
-        for _ in date:
-            count_name = count_name + 1
-        if count_name == 0:
-            return render(request, "supply_app.html", context=error_message_empty)
-
-        try:
-            supply = Suppliers.objects.get(name=f"{name}")
-            print(supply)
-        except:
-            return render(request, "supply_app.html", context=error_message_empty)
-
-        new_supply = supply.supply_set.create(amount=f"{pay_sup}", date=f"{date}")
-        new_supply.save()
-        return render(request, "supply_app.html", context=message)
+        form = SupplyForm(request.POST)
+        if form.is_valid():
+            sch1 = Supply(**form.cleaned_data)
+            print(sch1)
+            sch1.save()
+        return redirect("supply")
 
 
 def suppliers_app(request):
@@ -134,6 +103,9 @@ def suppliers_app(request):
         new_supplier = Suppliers.objects.create(name=f"{name}", payment_deferment=f"{pay_def}")
         new_supplier.save()
         return render(request, "suppliers_app.html", context=message)
+    return render(request, "suppliers_app.html")
+
+    """
     elif request.method == "POST":
         message = {"message": "Поставщик удален."}
         error_message_empty = {"error_message_empty": "Поля не могут быть пустыми."}
@@ -149,7 +121,7 @@ def suppliers_app(request):
         supplier_del = Suppliers.objects.get(name=f"{name}")
         print(supplier_del)
         return render(request, "suppliers_app.html", context=message)
-
+"""
 
 def production_app(request):
     return render(request, "production_app.html")

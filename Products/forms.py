@@ -11,7 +11,8 @@ class ProductionForm(forms.ModelForm):
 class SupplyForm(forms.ModelForm):
     class Meta:
         model = Supply
-        fields = ["date", "amount"]
+        fields = ["supplier", "date", "amount"]
+        widgets = {"date": forms.SelectDateWidget}
 
 
 class SuppliersForm(forms.ModelForm):

@@ -8,8 +8,8 @@ from Products.serializers import SupplySerializer, SuppliersSerializer, Producti
 
 class SuppliersApiTestCase(APITestCase):
     def test_suppliers_get(self):
-        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20, is_active=True)
-        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7, is_active=False)
+        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20)
+        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7)
         url = reverse("suppliers-list")
         response = self.client.get(url)
         serializer_data = SuppliersSerializer([supplier_1, supplier_2], many=True).data

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru-RU">
+{% load static %}
+<html lang="ru-Ru">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
     <title>Поставки</title>
 
 </head>
 <body>
+<img src="{% static "/image/img.jpg" %}" alt="AMENIEL COFFEE">
 <a href="{% url 'home' %}">Главная страница</a>
 <h1>Список поставок</h1>
 <form action="" method="GET">
@@ -16,12 +19,7 @@
 <h1>Добавить поставку</h1>
 <form action="" method="post" name="add">
         {% csrf_token %}
-        <p>Введите имя поставщика</p>
-        <input type="text" name="name" id="name" value="">
-        <p>Введите сумму поставки</p>
-        <input type="number" name="pay_sup" id="pay_sup" value="">
-        <p>Выберите дату поставки</p>
-        <input type="date" name="date" id="date" value=""><p></p>
+        <h2>{{ form }}</h2>
         <input type="submit" name="send" id="send">
         </form>
 

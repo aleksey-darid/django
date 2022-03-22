@@ -12,7 +12,7 @@ class SupplySerializer(ModelSerializer):
 class SuppliersSerializer(ModelSerializer):
     class Meta:
         model = Suppliers
-        fields = ["name", "payment_deferment", "is_active"]
+        fields = ["name", "payment_deferment"]
 
 
 class ProductionSerializer(ModelSerializer):

@@ -23,7 +23,7 @@ from Products.views import SuppliersView, ProductionView, BidView, supply_app, s
     production_app, bid_app, SupplyView
 from Users.views import UserView, user_app, \
     login_app, logout_app, registration_app, workers_app
-from HR.views import ScheduleView, schedule_app
+from HR.views import ScheduleView, schedule_app, wages_app
 
 router = SimpleRouter()
 router.register("api/supply", SupplyView)
@@ -46,6 +46,7 @@ urlpatterns = [
     path('logout_page/', logout_app, name="logout"),
     path('base_page/', base_app, name="base"),
     path('registration_page/', registration_app, name="registration"),
+    path('wages_page/', wages_app, name="wages"),
     path('', home_app, name='home')
 ]
 
