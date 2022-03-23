@@ -24,4 +24,4 @@ class ProductionSerializer(ModelSerializer):
 class BidSerializer(ModelSerializer):
     class Meta:
         model = Bid
-        fields = ["supplier", "text"]
+        fields = ["data", "text"]

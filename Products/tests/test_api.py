@@ -19,8 +19,8 @@ class SuppliersApiTestCase(APITestCase):
 
 class SupplyApiTestCase(APITestCase):
     def test_supply_get(self):
-        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20, is_active=True)
-        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7, is_active=False)
+        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20)
+        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7)
         supply_1 = Supply.objects.create(supplier=supplier_1, date="2022-02-10", amount="345.50")
         supply_2 = Supply.objects.create(supplier=supplier_2, date="2022-02-11", amount="234.30")
         url = reverse("supply-list")
@@ -43,10 +43,8 @@ class ProductionApiTestCase(APITestCase):
 
 class BidApiTestCase(APITestCase):
     def test_bid_get(self):
-        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20, is_active=True)
-        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7, is_active=False)
-        bid_1 = Bid.objects.create(supplier=supplier_1, text="milk 4, coffee 5")
-        bid_2 = Bid.objects.create(supplier=supplier_2, text="woter 7, sirop 6")
+        bid_1 = Bid.objects.create(data="2022-02-10", text="milk 4, coffee 5")
+        bid_2 = Bid.objects.create(data="2022-02-11", text="woter 7, sirop 6")
         url = reverse("bid-list")
         response = self.client.get(url)
         serializer_data = BidSerializer([bid_1, bid_2], many=True).data

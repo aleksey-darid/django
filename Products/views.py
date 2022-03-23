@@ -105,23 +105,6 @@ def suppliers_app(request):
         return render(request, "suppliers_app.html", context=message)
     return render(request, "suppliers_app.html")
 
-    """
-    elif request.method == "POST":
-        message = {"message": "Поставщик удален."}
-        error_message_empty = {"error_message_empty": "Поля не могут быть пустыми."}
-        data = request.POST.get
-        print(data)
-        name = data("name")
-        print(name)
-        count_name = 0
-        for _ in name:
-            count_name = count_name + 1
-        if count_name == 0:
-            return render(request, "suppliers_app.html", context=error_message_empty)
-        supplier_del = Suppliers.objects.get(name=f"{name}")
-        print(supplier_del)
-        return render(request, "suppliers_app.html", context=message)
-"""
 
 def production_app(request):
     return render(request, "production_app.html")

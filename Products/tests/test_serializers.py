@@ -6,22 +6,18 @@ from Products.serializers import SupplySerializer, SuppliersSerializer, Producti
 
 class SuppliersSerializerTestCase(TestCase):
     def test_ok(self):
-        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20, is_active=True)
-        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7, is_active=False)
+        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20)
+        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7)
         data = SuppliersSerializer([supplier_1, supplier_2], many=True).data
         expected_data = [
             {
-                # "id": user_1.id,
                 "name": "NOJACS",
-                "payment_deferment": 20,
-                "is_active": True
+                "payment_deferment": 20
 
             },
             {
-                # "id": user_2.id,
                 "name": "FORNAX",
-                "payment_deferment": 7,
-                "is_active": False
+                "payment_deferment": 7
             }
         ]
         self.assertEqual(expected_data, data)
@@ -29,8 +25,8 @@ class SuppliersSerializerTestCase(TestCase):
 
 class SupplySerializerTestCase(TestCase):
     def test_ok(self):
-        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20, is_active=True)
-        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7, is_active=False)
+        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20)
+        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7)
         supply_1 = Supply.objects.create(supplier=supplier_1, date="2022-02-10", amount="345.50")
         supply_2 = Supply.objects.create(supplier=supplier_2, date="2022-02-11", amount="234.30")
         data = SupplySerializer([supply_1, supply_2], many=True).data
@@ -77,20 +73,18 @@ class ProductionSerializerTestCase(TestCase):
 
 class BidSerializerTestCase(TestCase):
     def test_ok(self):
-        supplier_1 = Suppliers.objects.create(name="NOJACS", payment_deferment=20, is_active=True)
-        supplier_2 = Suppliers.objects.create(name="FORNAX", payment_deferment=7, is_active=False)
-        bid_1 = Bid.objects.create(supplier=supplier_1, text="milk 4, coffee 5")
-        bid_2 = Bid.objects.create(supplier=supplier_2, text="woter 7, sirop 6")
+        bid_1 = Bid.objects.create(data="2022-02-11", text="milk 4, coffee 5")
+        bid_2 = Bid.objects.create(data="2022-03-12", text="woter 7, sirop 6")
         data = BidSerializer([bid_1, bid_2], many=True).data
         expected_data = [
             {
                 # "id": user_1.id,
-                "supplier": 1,
+                "data": "2022-02-11",
                 "text": "milk 4, coffee 5"
             },
             {
                 # "id": user_2.id,
-                "supplier": 2,
+                "data": "2022-03-12",
                 "text": "woter 7, sirop 6"
             }
         ]
